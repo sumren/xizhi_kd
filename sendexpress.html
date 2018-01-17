@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我要寄件 -- 锡职快递服务平台</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+
+	<style type="text/css">
+		.sendExpressCont{
+			width: 100%;
+		}
+		.sendExpressCont .sendExpIcon{
+			width: 20%;
+			margin: 0px auto 10px;
+		}
+		.sendExpressCont .expInfoTxt{
+			width: 90%;
+			margin: 20px auto 10px;
+			text-align: center;
+			color: #d1d1d1;
+			overflow: hidden;
+		}
+		.sendExpressCont .expInfoTxt p{
+			text-align: center;
+			margin: 0px;
+			font-size: 14px;
+		}
+
+		.sendExpUserInfo{
+			width: 90%;
+			margin: 0 auto;
+			background: #fff;
+			border: 1px solid #c1c1c1;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.fillInfo{
+			width: 80%;
+			margin: 0px auto;
+			line-height: 40px;
+			padding-left: 25px;
+		}
+		.radioSelet{
+			background: url(images/radioSelect.png) no-repeat center left;
+			background-size: 20px;
+		}
+		.radioUnselet{
+			background: url(images/radioUnselect.png) no-repeat center left;
+			background-size: 20px;
+		}
+
+		.submitBtn{
+			width: 90%;
+			margin: 20px auto 40px;
+			line-height: 45px;
+			text-align: center;
+			background: #1f72ff;
+			border-radius: 8px;
+			color: #fff;
+			font-weight: border;
+		}
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="headerNav">
+		<div class="headerNavTop"><div class="headerNavIcon headerNavIconOut"><span></span><span></span></div></div>
+		<div class="headerNavCont">
+			<a href="./index.html">快递首页</a>
+			<a href="./userhome.html">个人中心</a>
+			<a href="./delivery.html">送货上门</a>
+			<a href="./sendexpress.html">我要寄件</a>
+			<a href="./lazyboard.html">懒人排行</a>
+			<a href="./expassistant.html">快递助手</a>
+		</div>
+	</div>
+
+	<div class="sendExpressCont">
+		<div class="sendExpIcon">
+			<img src="./images/sendExpIcon.png" width="100%">
+		</div>
+
+		<div class="expInfoTxt"><p>请填写收件人信息</p></div>
+
+		<form>
+		<div class="userInputCont">
+			<div class="inputTypeCont">
+				<div class="inputTitle">公司</div>
+				<select>
+					<option>请选择快递公司</option>
+					<option>顺丰快递</option>
+					<option>圆通快递</option>
+					<option>申通快递</option>
+					<option>韵达快递</option>
+					<option>中通快递</option>
+				</select>
+			</div>
+			<div class="inputTypeCont">
+				<div class="inputTitle">姓名</div>
+				<input type="text" class="commonInput" name="username" placeholder="请输入收件人姓名...">
+			</div>
+			<div class="inputTypeCont">
+				<div class="inputTitle">手机</div>
+				<input type="text" class="commonInput" name="username" placeholder="请输入收件人号码...">
+			</div>
+			<div class="inputTypeCont">
+				<div class="inputTitle">地址</div>
+				<input type="text" class="commonInput" name="username" placeholder="请输入收件人地址...">
+			</div>
+		</div>
+
+		<div class="expInfoTxt"><p>我的信息</p></div>
+		<div class="userInputCont">
+			<div class="inputTypeCont">
+				<div class="inputTitle">姓名</div>
+				<input type="text" class="commonInput" name="myname" placeholder="请输入我的姓名...">
+			</div>
+			<div class="inputTypeCont">
+				<div class="inputTitle">手机</div>
+				<input type="text" class="commonInput" name="myphonenum" placeholder="请输入我的手机号码...">
+			</div>
+			<div class="inputTypeCont">
+				<div class="inputTitle">地址</div>
+				<input type="text" class="commonInput" name="myaddress" placeholder="请输入我的地址...">
+			</div>
+		</div>
+		<div class="fillInfo radioUnselet">填入常用地址</div>
+		</form>
+
+		<div class="submitBtn">确认提交</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		var initFunc = function(){
+			// userInfo 
+			var userInfoH = $(".sendExpUserInfo").height();
+			var userInfoW = $(".sendExpUserInfo").width();
+			var userInfoIconH = $(".sendExpUserInfo .sendExpUserIcon").height();
+			var userInfoIconW = $(".sendExpUserInfo .sendExpUserIcon").width();
+			
+			var userInfoMargTopH = (userInfoH - userInfoIconH)/2;
+			$(".sendExpUserInfo .sendExpUserIcon").css({"margin-top":userInfoMargTopH+"px"});
+			$(".sendExpUserInfo .sendExpUserTxt").css({"width":(userInfoW-userInfoIconW - 10)+"px"});
+		};
+
+		initFunc();
+
+		$(window).resize(function(){
+			initFunc();
+		});
+
+		$(".fillInfo").click(function(){
+			$(".fillInfo").removeClass("radioUnselet");
+			$(".fillInfo").addClass("radioSelet");
+
+			$(".inputTypeCont input[name='myname']").val("总有刁民想害朕");
+			$(".inputTypeCont input[name='myphonenum']").val("18811012138");
+			$(".inputTypeCont input[name='myaddress']").val("锡林郭勒职业学院信息技术工程学院一楼");
+		});
+	});
+</script>
+</body>
+</html>

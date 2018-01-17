@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>用户通知 -- 锡职快递服务平台</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+
+	<style type="text/css">
+		.noticeCont{
+			width: 90%;
+			margin: 0 auto 10px;
+			background:#fff;
+			border-radius: 5px;
+			border: 1px solid #f1f1f1;
+		}
+		.noticeCont .noticeTitle{
+			width: 90%;
+			margin: 0 auto;
+			padding: 10px 0px;
+			text-align: center;
+			line-height: 20px;
+			font-size: 14px;
+			font-weight: bold;
+			border-bottom: 1px solid #f1f1f1;
+		}
+		.noticeCont .noticeTxt{
+			width: 90%;
+			margin: 0 auto;
+			padding: 10px 0px;
+			line-height: 25px;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="headerNav">
+		<div class="headerNavTop"><div class="headerNavIcon headerNavIconOut"><span></span><span></span></div></div>
+		<div class="headerNavCont">
+			<a href="../index.html">快递首页</a>
+			<a href="../userhome.html">个人中心</a>
+			<a href="../delivery.html">送货上门</a>
+			<a href="../sendexpress.html">我要寄件</a>
+			<a href="../lazyboard.html">懒人排行</a>
+			<a href="./expassistant.html">快递助手</a>
+		</div>
+	</div>
+
+	<div class="noticeCont">
+		<div class="noticeTitle">[通知]双十一来临，尽快完善个人信息</div>
+		<div class="noticeTxt">易度空间为了更好的服务全体师生，对现有现象，如，快递到了需要等待，自取需要排队等弊端，进行整改。1.同学们只需将网上收货地址改为，宿舍楼号＋宿舍号,例如:王XX   电话:1380479XXXX。地址:锡林郭勒职业学院3号楼333。2.每天配送两次，中午12点至1点半，下午4.40至6.00，高峰期补充配送一次，晚自习:9点20至10点，3.收费标准(5毛到1元)因动用人力较多，工作量较大，员工费用需达到平衡点。4.不需要配送的同学也不要心急，只需保留现有地址，易度空间会采取老办法，自取，因双11将至，易度空间为了缓解快件堆积压力，联合辉凰智联采用配送制度，自建配送团队，按照宿舍楼，进行，中转，分拣，配送三大环节，只为更好的服务全体师生。</div>
+	</div>
+
+	<div class="footer">
+		<p class="copyInfotxt">&copy;信息技术工程学院</p>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		var initFun = function(){
+			var windowH = $(window).height();
+			var contentH = $(".noticeCont").height();
+			if ((windowH - 30 -50)>contentH) {
+				$(".noticeCont").css({"height":(windowH -50 - 50)+"px"}); //nav footer
+			}
+		};
+
+		initFun();
+
+		$(window).resize(function(){
+			initFun();
+		});
+	});
+</script>
+</body>
+</html>

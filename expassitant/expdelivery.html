@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>寄件信息 -- 锡职快递服务平台</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+
+	<style type="text/css">
+		.expDliveryCont{
+			width: 100%;
+		}
+		.expDliveryCont .expDliveryIcon{
+			width: 20%;
+			margin: 0 auto;
+		}
+		.expDliveryCont .expDliveryTitle{
+			text-align: center;
+			font-weight: bolder;
+			margin: 10px 0px 0px;
+		}
+
+		.expDliveryFilterCont{
+			width: 92%;
+			margin: 20px auto 0;
+			font-size: 12px;
+			overflow: hidden;
+		}
+		.expDliveryFilterCont .expFilterDiv{
+			width: 32%;
+			height: 30px;
+			margin: 0px 0px 0px 1%;
+			float: left;
+			text-align: center;
+			overflow: hidden;
+		}
+		.expDliveryFilterCont .expFilterDiv .expFilterSelect{
+			width: calc(90% - 5px);
+			padding: 0px 0px 0px 5px;
+			background: #d4d4d4;
+			overflow: hidden;
+			border-radius: 5px;
+		}
+		.expDliveryFilterCont .expFilterDiv .expFilterSelect select{
+			width: 100%;
+			height: 30px;
+			background: none;
+			border: none;
+			outline: none;
+			color: #666666;
+		}
+		.expDliveryFilterCont .expFilterDiv button{
+			width: 90%;
+			height: 30px;
+			background: #d4d4d4;
+			border: none;
+			border-radius: 5px;
+			outline: none;
+			color: #32aae9;
+			font-weight: bold;
+			float: right;
+		}
+
+		.expDliveryInfoCont{
+			width: 90%;
+			margin: 20px auto 20px; 
+			font-size: 14px;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv{
+			width: 100%;
+			background: #fff;
+			border: 1px solid #f1f1f1;
+			border-radius: 8px;
+			margin-bottom: 10px;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryInfo{
+			width: 96%;
+			overflow: hidden;
+			padding: 8px 2%;
+			border-bottom: 1px dotted #f1f1f1;
+			position: relative;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryInfo p{
+			margin: 0px 0px 5px;
+			padding: 0px;
+			line-height: 20px;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryInfo .userName{
+			font-weight: bolder;
+			background: url(../images/username.png) no-repeat center left;
+			background-size: 15px;
+			padding-left: 20px;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryInfo .userPhone{
+			background: url(../images/userphone.png) no-repeat center left;
+			background-size: 15px;
+			padding-left: 20px;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryInfo .userAdress{
+			background: url(../images/useradress.png) no-repeat center left;
+			background-size: 15px;
+			padding-left: 20px;
+			color: #888888;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryInfo .expComp{
+			position: absolute;
+			top: 10px;
+			right: 0px;
+			width: 70px;
+			padding: 0px 15px;
+			line-height: 30px;
+			background: #f8931d;
+			color: #fff;
+			border-top-left-radius: 15px;
+			border-bottom-left-radius: 15px;
+			box-shadow: 3px 3px 3px #888888;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryOrderInfo{
+			width: 96%;
+			overflow: hidden;
+			padding: 0px 2%;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryOrderInfo .SendOrderDate{
+			margin: 0px;
+			padding: 0px;
+			float: left;
+			font-size: 12px;
+			color: #888888;
+			background: url(../images/userdate.png) no-repeat center left;
+			background-size: 15px;
+			padding-left: 20px;
+			line-height: 40px;
+		}
+		.expDliveryInfoCont .expDliveryInfoDiv .expDliveryOrderInfo .SendOrderConfBtn{
+			margin: 0px;
+			padding: 0px 15px;
+			float: right;
+			background:#77ac05;
+			color: #fff;
+			border-radius: 5px;
+			line-height: 26px;
+			margin-top: 7px;
+		}
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="headerNav">
+		<div class="headerNavTop"><div class="headerNavIcon headerNavIconOut"><span></span><span></span></div></div>
+		<div class="headerNavCont">
+			<a href="../index.html">快递首页</a>
+			<a href="../userhome.html">个人中心</a>
+			<a href="../delivery.html">送货上门</a>
+			<a href="../sendexpress.html">我要寄件</a>
+			<a href="../lazyboard.html">懒人排行</a>
+			<a href="../expassistant.html">快递助手</a>
+		</div>
+	</div>
+
+	<div class="expDliveryCont">
+		<div class="expDliveryIcon">
+			<img src="../images/deliveryIcon.png" width="100%">
+		</div>
+		<div class="expDliveryTitle">送货助手</div>
+
+		<div class="expDliveryFilterCont">
+			<form>
+				<div class="expFilterDiv">
+					<div class="expFilterSelect">
+						<select>
+							<option>选择校区</option>
+							<option>大专校区</option>
+							<option>机电校区</option>
+							<option>体育校区</option>
+						</select>
+					</div>
+				</div>
+				<div class="expFilterDiv">
+					<div class="expFilterSelect">
+						<select>
+							<option>选择公寓</option>
+							<option>1号公寓</option>
+							<option>2号公寓</option>
+							<option>3号公寓</option>
+						</select>
+					</div>
+				</div>
+				<div class="expFilterDiv">
+					<button>搜 索</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="expDliveryInfoCont">
+			<div class="expDliveryInfoDiv">
+				<div class="expDliveryInfo">
+					<p class="userName">张三</p>
+					<p class="userPhone">18811012138</p>
+					<p class="userAdress">锡林郭勒职业学院大专校区1号公寓202</p>
+					<div class="expComp">中通快递</div>
+				</div>
+				<div class="expDliveryOrderInfo">
+					<p class="SendOrderDate">2017-01-01</p>
+					<p class="SendOrderConfBtn">确认配送</p>
+				</div>
+			</div>
+			<div class="expDliveryInfoDiv">
+				<div class="expDliveryInfo">
+					<p class="userName">张三</p>
+					<p class="userPhone">18811012138</p>
+					<p class="userAdress">锡林郭勒职业学院大专校区1号公寓202</p>
+					<div class="expComp">顺丰快递</div>
+				</div>
+				<div class="expDliveryOrderInfo">
+					<p class="SendOrderDate">2017-01-01</p>
+					<p class="SendOrderConfBtn">确认配送</p>
+				</div>
+			</div>
+			<div class="expDliveryInfoDiv">
+				<div class="expDliveryInfo">
+					<p class="userName">张三</p>
+					<p class="userPhone">18811012138</p>
+					<p class="userAdress">锡林郭勒职业学院大专校区1号公寓202</p>
+					<div class="expComp">圆通快递</div>
+				</div>
+				<div class="expDliveryOrderInfo">
+					<p class="SendOrderDate">2017-01-01</p>
+					<p class="SendOrderConfBtn">确认配送</p>
+				</div>
+			</div>
+			<div class="expDliveryInfoDiv">
+				<div class="expDliveryInfo">
+					<p class="userName">张三</p>
+					<p class="userPhone">18811012138</p>
+					<p class="userAdress">锡林郭勒职业学院大专校区1号公寓202</p>
+					<div class="expComp">百世快递</div>
+				</div>
+				<div class="expDliveryOrderInfo">
+					<p class="SendOrderDate">2017-01-01</p>
+					<p class="SendOrderConfBtn">确认配送</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		var initFunc = function(){
+			
+		};
+
+		initFunc();
+
+		$(window).resize(function(){
+			initFunc();
+		});
+	});
+</script>
+</body>
+</html>

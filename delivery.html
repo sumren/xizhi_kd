@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>帮我送货 -- 锡职快递服务平台</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	
+	<style type="text/css">
+		.deliveryCont{
+			width: 100%;
+			margin: 0 auto;
+		}
+		.deliveryCont .deliveryIcon{
+			width: 20%;
+			margin: 0 auto;
+		}
+		.deliveryCont .deliveryIcon p{
+			text-align: center;
+			font-weight: bold;
+		}
+		.deliveryInput .submitBtn{
+			width: 90%;
+			margin: 0 auto;
+			text-align: center;
+			line-height: 46px;
+			border-radius: 23px;
+			background: #1f72ff;
+			color: #fff;
+			font-weight: bolder;
+		}
+
+		.payInfoCont{
+			width: 86%;
+			margin: 0 auto 20px;
+			font-size: 14px;
+			overflow: hidden;
+			padding: 0px 2%;
+		}
+		.payInfoCont .fillInfo{
+			float: left;
+			line-height: 40px;
+			padding-left: 25px;
+		}
+		.payInfoCont .radioSelet{
+			background: url(images/radioSelect.png) no-repeat center left;
+			background-size: 20px;
+		}
+		.payInfoCont .radioUnselet{
+			background: url(images/radioUnselect.png) no-repeat center left;
+			background-size: 20px;
+		}
+		.payInfoCont .payTxt{
+			float: right;
+			padding-left: 25px;
+			line-height: 40px;
+			background: url(images/payIcon.png) no-repeat center left;
+			background-size: 20px;
+		}
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="headerNav">
+		<div class="headerNavTop"><div class="headerNavIcon headerNavIconOut"><span></span><span></span></div></div>
+		<div class="headerNavCont">
+			<a href="./index.html">快递首页</a>
+			<a href="./userhome.html">个人中心</a>
+			<a href="./delivery.html">送货上门</a>
+			<a href="./sendexpress.html">我要寄件</a>
+			<a href="./lazyboard.html">懒人排行</a>
+			<a href="./expassistant.html">快递助手</a>
+		</div>
+	</div>
+
+	<div class="deliveryCont">
+		<div class="deliveryIcon">
+			<img src="images/deliveryIcon.png" width="100%">
+			<p>帮我送货</p>
+		</div>
+
+		<div class="deliveryInput">
+			<form>
+				<div class="userInputCont">
+					<div class="inputTypeCont">
+						<div class="inputTitle">快递</div>
+						<select>
+							<option>全部包裹</option>
+							<option>667639416219</option>
+							<option>667639416219</option>
+							<option>667639416219</option>
+						</select>
+					</div>
+					<div class="inputTypeCont">
+						<div class="inputTitle">姓名</div>
+						<input type="text" class="commonInput" name="username" placeholder="请输入收件人姓名...">
+					</div>
+					<div class="inputTypeCont">
+						<div class="inputTitle">手机</div>
+						<input type="text" class="commonInput" name="usernum" placeholder="请输入收件人号码...">
+					</div>
+					<div class="inputTypeCont">
+						<div class="inputTitle">校区</div>
+						<select>
+							<option>请选择校区</option>
+							<option>大专校区</option>
+							<option>机电校区</option>
+							<option>体育校区</option>
+						</select>
+					</div>
+					<div class="inputTypeCont">
+						<div class="inputTitle">公寓</div>
+						<select>
+							<option>请选择公寓</option>
+							<option>1号公寓</option>
+							<option>2号公寓</option>
+							<option>3号公寓</option>
+						</select>
+					</div>
+					<div class="inputTypeCont">
+						<div class="inputTitle">宿舍</div>
+						<input type="text" class="commonInput" name="username" placeholder="请输入宿舍号码...">
+					</div>
+				</div>
+			</form>
+			
+			<div class="payInfoCont">
+				<div class="fillInfo radioUnselet">保存为常用地址</div>
+				<div class="payTxt">共需支付：1.0￥</div>
+			</div>
+			
+			<div class="submitBtn">确认支付</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		$(".fillInfo").click(function(){
+			//var userInfoTxt = $(".fillInfo").html();
+			//if (userInfoTxt == "保存为常用地址") {
+				$(".fillInfo").removeClass("radioUnselet");
+				$(".fillInfo").addClass("radioSelet");
+
+				$(".inputTypeCont input[name='username']").val("总有刁民想害朕");
+				$(".inputTypeCont input[name='usernum']").val("18811012138");
+				$(".inputTypeCont input[name='useradress']").val("锡林郭勒职业学院信息技术工程学院一楼");
+			//} else{
+			//	$(".fillInfo").removeClass("radioSelet");
+			//	$(".fillInfo").addClass("radioUnselet");
+			//}
+		});
+	});
+</script>
+</body>
+</html>

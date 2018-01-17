@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>锡职快递服务平台</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/notice.js"></script>
+</head>
+<body>
+<div class="content">
+	<div class="top autoH">
+		<div class="logo autoH">
+			<img src="images/logo.png" width="100%">
+		</div>
+	</div>
+	<div class="middle">
+		<!--<form id="theForm"> -->
+			<div class="forminput">
+				<input type="text" name="expressNum" placeholder="请输入快递单号...">
+				<div class="submBtn"></div>
+			</div>
+		<!-- </form> -->
+	</div>
+	<div class="funContdiv">
+		<div class="funCont">
+			<div class="userFun">
+				<p class="funIcon userFunColor1"></p>
+				<p class="funTxt">个人中心</p>
+			</div>
+			<div class="userFun">
+				<p class="funIcon userFunColor2"></p>
+				<p class="funTxt">懒人排行</p>
+			</div>
+			<div class="userFun">
+				<p class="funIcon userFunColor3"></p>
+				<p class="funTxt">送货上门</p>
+			</div>
+			<div class="userFun">
+				<p class="funIcon userFunColor4"></p>
+				<p class="funTxt">我要寄件</p>
+			</div>
+			<div class="userFun">
+				<p class="funIcon userFunColor5"></p>
+				<p class="funTxt">快递助手</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p class="copytxt">&copy;信息技术工程学院</p>
+	</div>
+
+	<!-- cover -->
+	<div id="goodcover"></div>
+	
+	<div id="code">
+		<div class="close1"><a href="javascript:void(0)" id="closebt"><img src="images/close.gif"></a></div>
+		<div class="goodtxt">
+			<div class="bindPhicon">
+				<img src="images/bindphoneicon.png" width="30%">
+				<p class="bindPhTitle">实名认证</p>
+			</div>
+			<form id="userInfoForm">
+				<div class="regUserInfo">
+					<div class="userInputDiv">
+						<label for="userNameId" class="userNameLa"></label>
+						<input type="text" id="userNameId" name="userName" placeholder="请输入真实姓名">
+					</div>
+					<div class="userInputDiv">
+						<label for="userPhoneId" class="userPhoneLa"></label>
+						<input type="text" id="userPhoneId" name="userPhone" placeholder="请输入手机号码">
+					</div>
+					<div class="userInputDiv">
+						<label for="userVerifId" class="userVerifIdLa"></label>
+						<input type="text" id="userVerifId" name="userPhone" placeholder="请输入身份证号码...">
+					</div>
+					<div class="userPromptTxt">***请携带身份证到快递服务中心确认审核</div>
+					<!-- 
+					<div class="userInputDiv">
+						<label for="userPhVerifId" class="userPhVerifLa"></label>
+						<input type="text" id="userPhVerifId" name="userPhone" placeholder="输入验证码">
+						<div class="sendverifbt">获取验证码</div>
+					</div> -->
+					<p class="submitInfo">确&nbsp;&nbsp;认</p>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/regexp.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".userFun").click(function(){
+			var clickNum = $(this).index();
+			switch(clickNum){
+				//个人中心
+				case(0): window.location.href="./userhome.html"; break;
+				case(1): rzAlert("温馨提示","新功能正在筹备中，敬请期待！"); break;
+				case(2): rzAlert("温馨提示","新功能正在筹备中，敬请期待！"); break;
+				case(3): rzAlert("温馨提示","新功能正在筹备中，敬请期待！"); break;
+				case(4): window.location.href="./expassistant.html"; break;
+				//快递分析
+				//送货上门
+				//我要寄件
+				//快递助手
+			}
+		});
+
+		var initFunc = function(){
+			var windowH = $(window).height();
+			var windowW = $(window).width();
+			if (windowW > 600) {
+				windowW = 600;
+			}
+
+			var contH = windowH / 3;
+			$(".autoH").css({"height": contH+"px"});
+
+			// userFunH  content
+			var middleH = $(".middle").height() + 40;
+			var userFunH = $(".funContdiv").height();//$(".funContdiv").height();
+			var pagebottomH = windowH - contH - middleH - 30 - 30; //footer,userfun(margin)
+			//alert($(window).height() + "||" + $("body").height());
+			if (userFunH < pagebottomH) {
+				console.log(userFunH + "||" +pagebottomH);
+				//console.log($(".userFun").height());
+				$(".funContdiv").css({"height":pagebottomH+"px"});
+			}
+			
+			var funIconH = $(".funIcon").width(); 
+			$(".funIcon").css({"height": funIconH+"px","line-height": funIconH+"px","border-radius": funIconH/2 +"px","font-size":funIconH/2 +"px"});
+
+			// cover
+			$("#goodcover").css({"height":windowH+"px"});
+
+			var codeH = $("#code").height(); //contentH*0.7;
+			var codeW = windowW*0.7;
+			var coverTop = windowH - codeH - 20; //code padding:10
+			var coverLeft = windowW - codeW - 20;
+			$("#code").css({"width":codeW+"px","left": coverLeft/2+"px","top":coverTop/2+"px"});
+
+			// cover userinfo input
+			//var userInDivW = codeH*0.7 ;
+			var userInRightW = (codeH*0.7*0.9 - 40)*0.8;
+			$("#userNameId").css({"width":userInRightW+"px"});
+			$("#userPhoneId").css({"width":userInRightW+"px"});
+			$("#userPhVerifId").css({"width":(userInRightW*0.5)+"px"});
+		};
+
+		initFunc();
+
+		$(window).resize(function(){
+			initFunc();
+		});
+
+		// input focus
+		$(".middle .forminput input").focus(function(){
+			$(".middle .forminput").css({"border":"1px solid rgba(31,114,255,.75)","box-shadow":"0 0 8px rgba(31,114,255,.5)"});
+		});
+
+		// input blur
+		$(".middle .forminput input").blur(function(){
+			$(".middle .forminput").css({"border":"1px solid #333333","box-shadow":"none"});
+		});
+
+		//submit arrow
+		$(".submBtn").click(function(){
+			// if($(".forminput input[name=expressNum]").val() != ""){
+			// 	window.location.href="expressQuery.html";
+			// } else {
+			// 	// 微信用户没绑定手机号，提示绑定
+			// 	$("#goodcover").fadeIn();
+			// 	$("#code").show();
+			// }
+			var state = CheckExpNum($(".forminput input[name=expressNum]").val());
+			if (state) {
+				window.location.href="expressQuery.html";
+			} else {
+				alert("快递单号输入有误");
+			}
+		});
+
+		// cover closebt
+		$("#closebt").click(function(){
+			$("#code").hide();
+			$("#goodcover").fadeOut();
+		});
+	});
+</script>
+</body>
+</html>

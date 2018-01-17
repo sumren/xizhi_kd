@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>快递查询 -- 锡职快递服务平台</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+
+	<style type="text/css">
+		body{
+			background: #f4f4f4;
+		}
+		.content{
+			font-size: 14px;
+			font-family:"Microsoft YaHei";
+		}
+
+		.expQueryCont{
+			width:100%;
+		}
+
+		.expressInfoDiv{
+			width: 100%;
+		}
+		.expressInfoDiv .expressInfo{
+			width: 90%;
+			margin: 20px auto;
+			overflow: hidden;
+			background: #fff;
+			border: 1px solid #f1f1f1;
+			border-radius: 5px;
+		}
+		.expressInfoDiv .expressInfo .expressInfoIcon{
+			width: 70px;
+			float: left;
+			text-align: center;
+		}
+		.expressInfoDiv .expressInfo .expressInfoTxt{
+			width: 70%;
+			float:left;
+			color:#888888;
+		}
+		.expressInfo .expressInfoTxt .expressInfoTitle{
+			color: #333333;
+			font-weight: bold;
+		}
+		.expressInfo .expressInfoTxt .expressInfoNum{
+			color: #1f72ff;
+			font-weight: bolder;
+		}
+
+		.expressInfoDiv .deliverExpBtn{
+			width: 90%;
+			height:40px;
+			margin: 0 auto;
+			background: #1f72ff;
+			text-align: center;
+			line-height: 40px;
+			font-weight: bold;
+			font-size: 16px;
+			color: #fff;
+			border-radius: 5px;
+		}
+
+		.expressRoute{
+			width: 90%;
+			margin:20px auto 10px;
+			background: #fff;
+			border: 1px solid #f1f1f1;
+			border-radius: 5px;
+		}
+		.expressRoute .expRouteTitle{
+			padding: 0px 5px;
+			line-height: 30px;
+			color: #333333;
+			font-weight: bold;
+			border-bottom: 1px solid #f1f1f1;
+		}
+		.expressRoute .expRouteCont{
+			width: 95%;
+			margin: 0 auto;
+			overflow: auto;
+		}
+		.expRouteCont .expRouteContInfo{
+			color: #888888;
+			font-size: 12px;
+			border-bottom: 1px solid #f1f1f1;
+		}
+
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="headerNav">
+		<div class="headerNavTop"><div class="headerNavIcon headerNavIconOut"><span></span><span></span></div></div>
+		<div class="headerNavCont">
+			<a href="./index.html">快递首页</a>
+			<a href="./userhome.html">个人中心</a>
+			<a href="./delivery.html">送货上门</a>
+			<a href="./sendexpress.html">我要寄件</a>
+			<a href="./lazyboard.html">懒人排行</a>
+			<a href="./expassistant.html">快递助手</a>
+		</div>
+	</div>
+
+	<div class="expQueryCont">
+		<form id="userInfoForm">
+			<div class="inputTxtDiv">
+				<div class="userInputDiv">
+					<input type="text" id="userNameId" name="userName" placeholder="请输入快递单号">
+					<div class="searchBtn"></div>
+				</div>
+			</div>
+		</form>
+
+		<div class="expressInfoDiv">
+			<div class="expressInfo">
+				<div class="expressInfoIcon">
+					<img src="./images/expressSuccess.png" alt="正在加载..." width="50%">
+				</div>
+				<div class="expressInfoTxt">
+					<p class="expressInfoTitle">快递已到学校，快来领件</p>
+					<p>锡林郭勒职业学院信息技术工程学院一楼</p>
+					<p class="expressInfoNum">取货码：110120</p>
+				</div>
+			</div>
+
+			<div class="deliverExpBtn">帮我送货</div>
+		</div>
+
+	</div>
+
+	<div class="expressRoute">
+		<div class="expRouteTitle">物流信息</div>
+		<div class="expRouteCont">
+			<div class="expRouteContInfo">
+				<p>2017.11.4 20:50</p>
+				<p>[广东深圳公司]进行装车扫描，即将发往：北京分拨中心</p>
+			</div>	
+			<div class="expRouteContInfo">
+				<p>2017.11.4 20:50</p>
+				<p>[广东深圳公司]进行装车扫描，即将发往：北京分拨中心</p>
+			</div>
+			<div class="expRouteContInfo">
+				<p>2017.11.4 20:50</p>
+				<p>[广东深圳公司]进行装车扫描，即将发往：北京分拨中心</p>
+			</div>
+			<div class="expRouteContInfo">
+				<p>2017.11.4 20:50</p>
+				<p>[广东深圳公司]进行装车扫描，即将发往：北京分拨中心</p>
+			</div>
+			<div class="expRouteContInfo">
+				<p>2017.11.4 20:50</p>
+				<p>[广东深圳公司]进行装车扫描，即将发往：北京分拨中心</p>
+			</div>
+			<div class="expRouteContInfo">
+				<p>2017.11.4 20:50</p>
+				<p>[广东深圳公司]进行装车扫描，即将发往：北京分拨中心</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p class="copyInfotxt">&copy;信息技术工程学院</p>
+	</div>
+					
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/regexp.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var initFunc = function(){
+			// expressInfo 
+			var expInfoH = $(".expressInfoDiv .expressInfo").height();
+			var expInfoW = $(".expressInfoDiv .expressInfo").width();
+			var expStateIconH = $(".expressInfo .expressInfoIcon").height();
+			
+			var expInfoMargTopH = (expInfoH - expStateIconH)/2;
+			$(".expressInfo .expressInfoIcon").css({"margin-top":expInfoMargTopH+"px"});
+			$(".expressInfo .expressInfoTxt").css({"width":(expInfoW-90)+"px"});
+
+
+			// web layout
+			var windowW = $(window).width();
+			var windowH = $(window).height();
+			var headerNavH = $(".headerNav").outerHeight();
+			var expInfoH = $(".expQueryCont").outerHeight();
+			var expRouteDivH = windowH-headerNavH-expInfoH - 30 -30 - 2;//margin30  footer 30 border 2
+			$(".expressRoute").css({"height":expRouteDivH+"px"}); 
+
+			//expRouteCont
+			$(".expressRoute .expRouteCont").css({
+				"height": (expRouteDivH-30)+"px"
+			});
+		};
+
+		initFunc();
+
+		$(window).resize(function(){
+			initFunc();
+		});
+
+		$(".deliverExpBtn").click(function(){
+			window.location.href = "./delivery.html";
+		});
+		
+	});
+</script>
+</body>
+</html>
